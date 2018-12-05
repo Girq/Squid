@@ -1,0 +1,16 @@
+---
+  -
+    name: "Configuration | CentOS | config file"
+    template:
+      src: "/etc/ansible/roles/Squidd/templates/squid.conf.j2"
+      dest: "/etc/squid/squid.conf.j2"
+
+
+
+  -
+    name: "Configuration | CentOS | service est active"
+    service:
+      name: "squid"
+      enabled: True
+      state: started
+  

@@ -1,0 +1,20 @@
+---
+  -
+    name: "Include installation for CentOS"
+    import_tasks: install_centos.yml
+    when: ansible_os_family == "RedHat"
+    tags:
+      - install
+  -
+    name: " Inclure de configuration squid "
+    import_tasks: configure_squid.yml
+    when: ansible_os_family == "RedHat"
+    tags:
+      - configure
+
+
+  - name: restart squid
+    service:
+      name: "squid"
+      state: "restarted"
+    become: true

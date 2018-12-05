@@ -1,0 +1,9 @@
+---
+
+  -
+    name: "Installation | CentOS | Squid service "
+    yum:
+      name: "{{ item }}"
+      state: "present"
+    with_items:
+      - squid
